@@ -308,7 +308,7 @@ footer {
   width: 100%;
   background: #ffffffcc;   /* slightly transparent white */
   backdrop-filter: blur(10px); /* soft blur behind navbar */
-  z-index: 999;
+  z-index: 1000;
   padding: 12px 20px;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -340,7 +340,7 @@ footer {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center; /* center brand */
+  justify-content: space-between; /* change from center to space-between */
 }
 
 /* Centered brand */
@@ -357,6 +357,8 @@ footer {
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1001;        /* force it above everything */
+  pointer-events: auto;
 }
 
 /* Desktop menu */
@@ -380,10 +382,16 @@ footer {
     margin-top: 15px;
     padding-top: 10px;
     border-top: 1px solid #e5e5e5;
+    position: relative;
+    z-index: 999;
   }
 
   .navbar ul.active {
     display: flex;
+  }
+
+  .nav-header {
+    padding: 0 20px; /* ensures hamburger isn't too close to edge */
   }
 }
 
@@ -392,4 +400,5 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
 
