@@ -14,27 +14,34 @@ document.querySelectorAll('.flip-card').forEach(card => {
 const navbar = document.querySelector('.navbar');
 const navbarHeight = navbar.offsetHeight;
 
+// Smooth scroll with navbar offset (mobile & desktop safe)
 document.querySelectorAll('.navbar a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
 
     const targetId = link.getAttribute('href');
     const target = document.querySelector(targetId);
-
     if (!target) return;
 
-    // Use current navbar height dynamically
-    const currentNavbarHeight = navbar.offsetHeight;
+    // If mobile, close menu first
+    if (navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+    }
 
-    const targetPosition =
-      target.getBoundingClientRect().top +
-      window.scrollY -
-      currentNavbarHeight; // remove the extra -10
+    // Use setTimeout to wait for menu to collapse on mobile
+    setTimeout(() => {
+      const currentNavbarHeight = navbar.offsetHeight;
 
-    window.scrollTo({
-      top: targetPosition,
-      behavior: 'smooth'
-    });
+      const targetPosition =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        currentNavbarHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }, 50); // 50ms is usually enough
   });
 });
 
@@ -58,3 +65,4 @@ if (hamburger && navMenu) {
     });
   });
 }
+
