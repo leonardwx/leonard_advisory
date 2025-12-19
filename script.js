@@ -9,7 +9,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
 
 
 // ===============================
-// Smooth scroll with navbar offset
+// Smooth scroll with navbar offset (mobile & desktop)// 
 // ===============================
 const navbar = document.querySelector('.navbar');
 
@@ -42,7 +42,6 @@ document.querySelectorAll('.navbar a').forEach(link => {
 
 
 
-
 // ===============================
 // Hamburger menu toggle (mobile)
 // ===============================
@@ -61,5 +60,6 @@ if (hamburger && navMenu) {
     });
   });
 }
+
 
 
