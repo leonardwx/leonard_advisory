@@ -241,20 +241,27 @@ footer {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* keep side by side */
-    gap: 20px;                       /* smaller gap for mobile */
+    display: flex;
+    flex-direction: column; /* stack items vertically */
     align-items: center;
-    text-align: left;                /* optional, looks better on mobile */
+    text-align: center;
+    gap: 20px;
+  }
+
+  /* Make sure the flip card (picture) is above the text */
+  .flip-container {
+    order: -1; /* moves the flip container above the text */
+    width: 200px; /* optional: adjust width */
+    height: 260px; /* optional: adjust height */
   }
 
   .about-text {
-    font-size: 0.95rem;              /* slightly smaller text for mobile */
+    font-size: 1rem;              /* slightly smaller text for mobile */
   }
 
   .flip-card {
-    width: 140px;                     /* smaller flip card */
-    height: 180px;
+    width: 100%;
+    height: 100%;
   }
 
   .hero-flip .flip-card {
@@ -407,6 +414,9 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
+
+
 
 
 
