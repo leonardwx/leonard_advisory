@@ -1,7 +1,7 @@
 :root {
   --primary: #1f2937;      /* dark text */
-  --accent: #14b8a6;       /* lighter teal/green */
-  --accent-light: #2dd4bf; /* lighter gradient end */
+  --accent: #d23854;       /* lighter red */
+  --accent-light: #d23854; /* lighter gradient end */
   --bg: #fdf6ec;           /* main page background */
 --card: #e0f2fe;   /* very light sky blue */
   --text: #1f2937;         /* text color */
@@ -407,6 +407,7 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
