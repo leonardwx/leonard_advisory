@@ -564,3 +564,33 @@ html {
   }
 }
 
+
+.carousel-swipe-hint {
+  display: none; /* hide by default for desktop */
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 16px;
+  color: #d23854; /* your accent color */
+}
+
+.carousel-swipe-hint .swipe-arrow {
+  font-size: 20px;
+  animation: bounce 1s infinite alternate;
+}
+
+/* Simple bounce effect for arrows */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+/* Only show on mobile */
+@media (max-width: 768px) {
+  .carousel-swipe-hint {
+    display: flex;
+  }
+}
+
+
