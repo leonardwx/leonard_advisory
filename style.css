@@ -70,7 +70,13 @@ h2 {
   text-align: center;
 }
 
-
+  .advisor-name {
+    color: #d23854;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px; /* Adjust font size if needed */
+  }
 
 .hero-text {
   max-width: 500px;
@@ -573,5 +579,3 @@ html {
     font-size: 15px;
   }
 }
-
-
