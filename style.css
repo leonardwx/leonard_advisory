@@ -564,6 +564,15 @@ html {
   }
 }
 
+#carouselTrack {
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+#carouselTrack:active {
+  cursor: grabbing;
+}
 
 .carousel-swipe-hint {
   display: none; /* hide by default for desktop */
@@ -592,5 +601,6 @@ html {
     display: flex;
   }
 }
+
 
 
