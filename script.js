@@ -9,7 +9,14 @@ document.querySelectorAll('.flip-card').forEach(card => {
 
 
 // ===============================
-// Smooth scroll with navbar offset (mobile & desktop)// 
+// Hamburger menu toggle (mobile)
+// ===============================
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu'); // <- moved up so it's defined early
+
+
+// ===============================
+// Smooth scroll with navbar offset (mobile & desktop)
 // ===============================
 const navbar = document.querySelector('.navbar');
 
@@ -34,7 +41,7 @@ document.querySelectorAll('.navbar a').forEach(link => {
     });
 
     // Close mobile menu if open
-    if (navMenu.classList.contains('active')) {
+    if (navMenu && navMenu.classList.contains('active')) {
       navMenu.classList.remove('active');
     }
   });
@@ -44,9 +51,6 @@ document.querySelectorAll('.navbar a').forEach(link => {
 // ===============================
 // Hamburger menu toggle (mobile)
 // ===============================
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-
 if (hamburger && navMenu) {
   hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
@@ -59,6 +63,7 @@ if (hamburger && navMenu) {
     });
   });
 }
+
 
 
 
