@@ -429,7 +429,7 @@ html {
 .carousel-container {
   width: 100%;
   overflow: hidden;
-  padding: 0 55px;
+  padding: 0 10px;
   box-sizing: border-box;
   position: relative;
 }
@@ -439,6 +439,8 @@ html {
   display: flex;
   transition: transform 0.4s ease-in-out;
   will-change: transform;
+  /* Align first card closer to left */
+  padding-left: 0;
 }
 
 /* Cards */
@@ -542,7 +544,29 @@ html {
 
 /* Mobile: hide arrows */
 @media (max-width: 768px) {
+
+  /* Hide arrows on phone */
   .carousel-btn {
     display: none;
   }
+
+  /* Remove side gap on mobile */
+  .carousel-container {
+    padding: 0;
+  }
+
+  .carousel-track {
+    padding-left: 5px;
+  }
+
+  .testimonial-card {
+    min-width: 90%;
+    max-width: 90%;
+    margin: 0 6px;
+  }
+
+  .testimonial-card p {
+    font-size: 15px;
+  }
 }
+
