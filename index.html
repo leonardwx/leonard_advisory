@@ -23,7 +23,6 @@
 
   <ul id="nav-menu">
     <li><a href="#about">About Me</a></li>
-    <li><a href="#enamecard">E-Namecard</a></li>
     <li><a href="#hero">Financial Planning</a></li>
     <li><a href="#why">WHY ME</a></li>
     <li><a href="#testimonials">Clients' Testimonials</a></li>
@@ -84,8 +83,6 @@
   </div>
 
 </section>
-
-
 
 
   <!-- Hero / Financial Planning -->
@@ -360,7 +357,6 @@
   <div class="carousel-dots" id="carouselDots"></div>
 </section>
 
-  
   <script>
   const track = document.getElementById("carouselTrack");
   const cards = document.querySelectorAll(".testimonial-card");
@@ -370,10 +366,10 @@
 
   let index = 0;
 
-  /* Create dots */
+  /* Create dots dynamically */
   cards.forEach((_, i) => {
     const dot = document.createElement("span");
-    if(i===0) dot.classList.add("active");
+    if (i === 0) dot.classList.add("active");
     dot.addEventListener("click", () => {
       index = i;
       updateCarousel();
@@ -383,38 +379,45 @@
 
   const dots = document.querySelectorAll(".carousel-dots span");
 
-  /* Update carousel */
+  /* Update carousel function */
   function updateCarousel() {
-    const cardWidth = cards[0].offsetWidth + 24; // include margin
+    const cardWidth = cards[0].getBoundingClientRect().width + parseInt(getComputedStyle(cards[0]).marginRight);
     track.style.transform = `translateX(-${index * cardWidth}px)`;
+
     prevBtn.disabled = index === 0;
-    nextBtn.disabled = index === cards.length - 1;
+    nextBtn.disabled = index >= cards.length - 1;
+
     dots.forEach(dot => dot.classList.remove("active"));
-    dots[index].classList.add("active");
+    if(dots[index]) dots[index].classList.add("active");
   }
 
+  /* Navigation buttons */
   nextBtn.addEventListener("click", () => {
-    if(index < cards.length-1) { index++; updateCarousel(); }
+    if(index < cards.length - 1) { index++; updateCarousel(); }
   });
 
   prevBtn.addEventListener("click", () => {
     if(index > 0) { index--; updateCarousel(); }
   });
 
-  /* Mobile swipe */
+  /* Swipe support */
   let startX = 0;
-  let endX = 0;
   track.addEventListener("touchstart", e => { startX = e.touches[0].clientX; });
   track.addEventListener("touchend", e => {
-    endX = e.changedTouches[0].clientX;
-    if(startX - endX > 50 && index < cards.length-1) index++;
-    if(endX - startX > 50 && index > 0) index--;
+    const endX = e.changedTouches[0].clientX;
+    const swipeThreshold = cards[0].getBoundingClientRect().width / 4; // swipe 25% width
+    if(startX - endX > swipeThreshold && index < cards.length-1) index++;
+    if(endX - startX > swipeThreshold && index > 0) index--;
     updateCarousel();
   });
 
+  /* Initialize carousel */
   updateCarousel();
-  </script>
 
+  /* Optional: update on window resize to recalc width */
+  window.addEventListener("resize", updateCarousel);
+
+  </script>
 
 
   <!-- Credentials -->
@@ -506,6 +509,5 @@
 
 </body>
 </html>
-
 
 
