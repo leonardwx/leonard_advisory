@@ -42,12 +42,12 @@
 
 <main>
 
-  <!-- About Me --><!-- About Me -->
+<!-- About Me -->
 <section class="container about" id="about">
-  <h2>🙋 About Me </h2>
+  <h2> About Me </h2>
   <div class="about-grid">
-    
-    <!-- Advisor Picture -->
+
+    <!-- Advisor Picture + Name -->
     <div class="about-pic">
       <div class="flip-container">
         <div class="flip-card">
@@ -59,6 +59,8 @@
           </div>
         </div>
       </div>
+      <!-- Name below the picture -->
+      <p class="advisor-name">LIM WEI XI</p>
     </div>
 
     <!-- About Text -->
@@ -80,21 +82,11 @@
     </div>
 
   </div>
+
 </section>
 
-  <!-- Digital E-Namecard -->
-  <section class="container" id="enamecard">
-    <h2>🆔 View My Digital E-Namecard</h2>
-    <div class="center-btn">
-      <a class="btn" 
-        href="https://www.aia.com.sg/en/agent-profile?cd=011&q=xc30d04090302d367ea2a896f17c572d23e01cb8ab61efeebcd354b1e9546e0bc17de65764b0df34e0a0d8c6c6d326d857a49019618056b2e79e87b6a8a51b64611e317a61f80532fcf82acc56f3fe7" 
-        target="_blank"
-        style="font-size: 18px; padding: 12px 24px;"
-      >
-        View My E-Namecard
-      </a>
-    </div>
-  </section>
+
+
 
   <!-- Hero / Financial Planning -->
   <header class="hero" id="hero">
@@ -369,61 +361,6 @@
 </section>
 
 
-<script>
-const track = document.getElementById("carouselTrack");
-const cards = document.querySelectorAll(".testimonial-card");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const dotsContainer = document.getElementById("carouselDots");
-
-let index = 0;
-
-/* Create dots */
-cards.forEach((_, i) => {
-  const dot = document.createElement("span");
-  if(i===0) dot.classList.add("active");
-  dot.addEventListener("click", () => {
-    index = i;
-    updateCarousel();
-  });
-  dotsContainer.appendChild(dot);
-});
-
-const dots = document.querySelectorAll(".carousel-dots span");
-
-/* Update carousel */
-function updateCarousel() {
-  const cardWidth = cards[0].offsetWidth + 24; // include margin
-  track.style.transform = `translateX(-${index * cardWidth}px)`;
-  prevBtn.disabled = index === 0;
-  nextBtn.disabled = index === cards.length - 1;
-  dots.forEach(dot => dot.classList.remove("active"));
-  dots[index].classList.add("active");
-}
-
-nextBtn.addEventListener("click", () => {
-  if(index < cards.length-1) { index++; updateCarousel(); }
-});
-
-prevBtn.addEventListener("click", () => {
-  if(index > 0) { index--; updateCarousel(); }
-});
-
-/* Mobile swipe */
-let startX = 0;
-let endX = 0;
-track.addEventListener("touchstart", e => { startX = e.touches[0].clientX; });
-track.addEventListener("touchend", e => {
-  endX = e.changedTouches[0].clientX;
-  if(startX - endX > 50 && index < cards.length-1) index++;
-  if(endX - startX > 50 && index > 0) index--;
-  updateCarousel();
-});
-
-updateCarousel();
-</script>
-
-
   <!-- Credentials -->
   <section class="container credentials" id="credentials">
     <h2>📜 Credentials & Qualifications</h2>
@@ -458,12 +395,12 @@ updateCarousel();
   <section class="container" id="claims">
     <h2>🏥 Claims Records </h2>
     <div class="claims-summary center-text">
-      <p>Over <strong>355+ claims</strong> processed with total value <strong>SGD 309,800</strong> (Jan 2026)</p>
+      <p>Over <strong>357+ claims</strong> processed with total value <strong>SGD 310,000</strong> (Jan 2026)</p>
     </div>
     <br>
     <div class="cards">
-      <div class="card"><h3>Total Claims</h3><p>350+</p></div>
-      <div class="card"><h3>Total Value</h3><p>SGD 309,800</p></div>
+      <div class="card"><h3>Total Claims</h3><p>357+</p></div>
+      <div class="card"><h3>Total Value</h3><p>SGD 310,000</p></div>
     </div>
     <div class="center-btn">
     <a class="btn" 
@@ -476,23 +413,32 @@ updateCarousel();
 
   </section>
 
-  <!-- Contact -->
-  <section class="container contact" id="contact">
-    <h2>📲 Get in Touch</h2>
-    
-    <div style="text-align: center; margin-bottom: 20px;">
-      <p>
-        If you’re looking for honest, professional financial advice, 
-        feel free to reach out for a no-obligation discussion.
-      </p>
-      <br>
-      <a class="btn whatsapp-btn" href="https://wa.me/6592708573" target="_blank"
-        style="font-size: 18px;">
-        <img src="images/whatsapp.png" alt="WhatsApp" class="wa-icon">
-        Message Me on WhatsApp
-      </a>
-    </div>
-  </section>
+<!-- Contact & Digital E-Namecard -->
+<section class="container contact" id="contact">
+  <h2>📲 Get in Touch & Digital E-Namecard</h2>
+  
+  <div style="text-align: center; margin-bottom: 20px;">
+    <p>
+      If you’re looking for honest, professional financial advice, 
+      feel free to reach out for a no-obligation discussion.
+    </p>
+    <br>
+    <a class="btn whatsapp-btn" href="https://wa.me/6592708573" target="_blank"
+      style="font-size: 18px; margin-bottom: 10px; display: inline-flex; align-items: center; gap: 8px;">
+      <img src="images/whatsapp.png" alt="WhatsApp" class="wa-icon">
+      Message Me on WhatsApp
+    </a>
+    <br><br>
+    <a class="btn" 
+      href="https://www.aia.com.sg/en/agent-profile?cd=011&q=xc30d04090302d367ea2a896f17c572d23e01cb8ab61efeebcd354b1e9546e0bc17de65764b0df34e0a0d8c6c6d326d857a49019618056b2e79e87b6a8a51b64611e317a61f80532fcf82acc56f3fe7" 
+      target="_blank"
+      style="font-size: 18px; padding: 12px 24px;"
+    >
+      View My E-Namecard
+    </a>
+  </div>
+</section>
+
 
 </main>
 
@@ -504,4 +450,5 @@ updateCarousel();
 
 </body>
 </html>
+
 
