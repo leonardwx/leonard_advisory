@@ -63,7 +63,3 @@ if (hamburger && navMenu) {
     });
   });
 }
-
-
-
-
