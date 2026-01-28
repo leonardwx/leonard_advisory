@@ -574,6 +574,7 @@ html {
   cursor: grabbing;
 }
 
+/* Check Check */
 .carousel-swipe-hint {
   display: none; /* hide by default for desktop */
   justify-content: center;
@@ -601,6 +602,3 @@ html {
     display: flex;
   }
 }
-
-
-
