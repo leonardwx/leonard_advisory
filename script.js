@@ -65,7 +65,7 @@ if (hamburger && navMenu) {
 }
 
 // ===============================
-// Testimonials Carousel (Drag / Pull Style)
+// Testimonials Carousel
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -76,30 +76,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const dotsContainer = document.getElementById("carouselDots");
   const swipeArrows = document.querySelectorAll(".carousel-swipe-hint .swipe-arrow");
 
-  if (!track || cards.length === 0) return;
+  if (!track || cards.length === 0) return; // safety check
 
   let index = 0;
-
-  // Drag variables
-  let isDragging = false;
   let startX = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  let animationID = 0;
-
 
   // ===============================
-  // Create Dots
+  // Create dots
   // ===============================
   cards.forEach((_, i) => {
-
     const dot = document.createElement("span");
 
     if (i === 0) dot.classList.add("active");
 
     dot.addEventListener("click", () => {
       index = i;
-      snapToIndex();
+      updateCarousel();
     });
 
     dotsContainer.appendChild(dot);
@@ -109,26 +101,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ===============================
-  // Helpers
+  // Update carousel
   // ===============================
-  function getCardWidth() {
+  function updateCarousel() {
 
-    const style = getComputedStyle(cards[0]);
+    const cardStyle = getComputedStyle(cards[0]);
 
-    return (
+    const cardWidth =
       cards[0].getBoundingClientRect().width +
-      parseInt(style.marginRight)
-    );
-  }
+      parseInt(cardStyle.marginRight);
 
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
 
-  function setPosition() {
-    track.style.transform = `translateX(${currentTranslate}px)`;
-  }
+    // Buttons disable
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index >= cards.length - 1;
 
-
-  function updateDots() {
-
+    // Update dots
     dots.forEach(dot => dot.classList.remove("active"));
 
     if (dots[index]) {
@@ -137,113 +126,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  function snapToIndex() {
-
-    const width = getCardWidth();
-
-    currentTranslate = -index * width;
-    prevTranslate = currentTranslate;
-
-    track.style.transition = "transform 0.3s ease";
-    setPosition();
-
-    updateDots();
-  }
-
-
   // ===============================
-  // Drag Events
-  // ===============================
-  function dragStart(x) {
-
-    isDragging = true;
-    startX = x;
-
-    track.style.transition = "none";
-
-    animationID = requestAnimationFrame(animation);
-  }
-
-
-  function dragMove(x) {
-
-    if (!isDragging) return;
-
-    const diff = x - startX;
-
-    currentTranslate = prevTranslate + diff;
-  }
-
-
-  function dragEnd() {
-
-    cancelAnimationFrame(animationID);
-
-    isDragging = false;
-
-    const width = getCardWidth();
-
-    const movedBy = currentTranslate - prevTranslate;
-
-    // Decide snap direction
-    if (movedBy < -width / 4 && index < cards.length - 1) {
-      index++;
-    }
-
-    if (movedBy > width / 4 && index > 0) {
-      index--;
-    }
-
-    snapToIndex();
-  }
-
-
-  function animation() {
-
-    setPosition();
-
-    if (isDragging) {
-      requestAnimationFrame(animation);
-    }
-  }
-
-
-  // ===============================
-  // Touch Events (Mobile)
-  // ===============================
-  track.addEventListener("touchstart", e => {
-    dragStart(e.touches[0].clientX);
-  });
-
-  track.addEventListener("touchmove", e => {
-    dragMove(e.touches[0].clientX);
-  });
-
-  track.addEventListener("touchend", dragEnd);
-
-
-  // ===============================
-  // Mouse Events (Desktop)
-  // ===============================
-  track.addEventListener("mousedown", e => {
-    dragStart(e.clientX);
-  });
-
-  window.addEventListener("mousemove", e => {
-    dragMove(e.clientX);
-  });
-
-  window.addEventListener("mouseup", dragEnd);
-
-
-  // ===============================
-  // Buttons
+  // Button Navigation
   // ===============================
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
       if (index < cards.length - 1) {
         index++;
-        snapToIndex();
+        updateCarousel();
       }
     });
   }
@@ -252,39 +142,73 @@ document.addEventListener("DOMContentLoaded", () => {
     prevBtn.addEventListener("click", () => {
       if (index > 0) {
         index--;
-        snapToIndex();
+        updateCarousel();
       }
     });
   }
 
 
   // ===============================
-  // Bottom Arrows
+  // Swipe Support (Mobile)
+  // ===============================
+  track.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener("touchend", e => {
+
+    const endX = e.changedTouches[0].clientX;
+
+    const swipeDistance = startX - endX;
+
+    const threshold = cards[0].offsetWidth * 0.25; // 25%
+
+    // Swipe left → next
+    if (swipeDistance > threshold && index < cards.length - 1) {
+      index++;
+    }
+
+    // Swipe right → prev
+    if (-swipeDistance > threshold && index > 0) {
+      index--;
+    }
+
+    updateCarousel();
+  });
+
+
+  // ===============================
+  // Bottom Swipe Arrows
   // ===============================
   swipeArrows.forEach((arrow, i) => {
 
     arrow.addEventListener("click", () => {
 
-      if (i === 0 && index > 0) index--;
-      if (i === 1 && index < cards.length - 1) index++;
+      // Left arrow
+      if (i === 0 && index > 0) {
+        index--;
+      }
 
-      snapToIndex();
+      // Right arrow
+      if (i === 1 && index < cards.length - 1) {
+        index++;
+      }
+
+      updateCarousel();
     });
 
   });
 
 
   // ===============================
-  // Resize
+  // Resize Support
   // ===============================
-  window.addEventListener("resize", snapToIndex);
+  window.addEventListener("resize", updateCarousel);
 
 
   // ===============================
   // Init
   // ===============================
-  snapToIndex();
+  updateCarousel();
 
 });
-
-
