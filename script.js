@@ -69,11 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const dotsContainer = document.getElementById("carouselDots");
 
   let index = 0;
+  let startX = 0;
+  let isDragging = false;
 
   /* Create dots */
   cards.forEach((_, i) => {
     const dot = document.createElement("span");
-
     if (i === 0) dot.classList.add("active");
 
     dot.addEventListener("click", () => {
@@ -88,10 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Update carousel */
   function updateCarousel() {
-
-    const cardWidth = cards[0].offsetWidth + 24;
-
+    const cardWidth = cards[0].offsetWidth + 24; // 24px spacing between cards
     track.style.transform = `translateX(-${index * cardWidth}px)`;
+    track.style.transition = "transform 0.3s ease"; // smooth animation
 
     prevBtn.disabled = index === 0;
     nextBtn.disabled = index === cards.length - 1;
@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dots[index].classList.add("active");
   }
 
+  /* Button events */
   nextBtn.addEventListener("click", () => {
     if (index < cards.length - 1) {
       index++;
@@ -115,22 +116,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* Mobile swipe */
-  let startX = 0;
-
   track.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
+    isDragging = true;
+    track.style.transition = "none"; // disable transition while dragging
+  });
+
+  track.addEventListener("touchmove", e => {
+    if (!isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const deltaX = currentX - startX;
+
+    const cardWidth = cards[0].offsetWidth + 24;
+    track.style.transform = `translateX(${-index * cardWidth + deltaX}px)`;
   });
 
   track.addEventListener("touchend", e => {
+    if (!isDragging) return;
+    isDragging = false;
 
     const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    const swipeThreshold = 50; // minimum swipe distance
 
-    if (startX - endX > 50 && index < cards.length - 1) index++;
-    if (endX - startX > 50 && index > 0) index--;
+    if (diff > swipeThreshold && index < cards.length - 1) {
+      index++;
+    } else if (diff < -swipeThreshold && index > 0) {
+      index--;
+    }
 
     updateCarousel();
   });
 
-  updateCarousel();
+  /* Make carousel responsive on resize */
+  window.addEventListener("resize", () => {
+    updateCarousel();
+  });
+
+  updateCarousel(); // initial setup
 
 });
+
