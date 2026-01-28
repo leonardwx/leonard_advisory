@@ -1,454 +1,582 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Financial Advisory | Wei Xi (Leonard)</title>
-  <meta name="description" content="Professional financial advisor providing insurance, protection, and wealth planning. Transparent, client-first advice.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="images/favicon.ico">
-</head>
-<body>
-
-<!-- Navigation -->
-<nav class="navbar">
-  <div class="nav-header">
-  <span class="brand" style="color: #d23854;">
-    <strong>WEI XI</strong> | Financial Planning
-  </span>
-    <br><br><button class="hamburger" id="hamburger">
-      ☰
-    </button>
-  </div>
-
-  <ul id="nav-menu">
-    <li><a href="#about">About Me</a></li>
-    <li><a href="#enamecard">E-Namecard</a></li>
-    <li><a href="#hero">Financial Planning</a></li>
-    <li><a href="#why">WHY ME</a></li>
-    <li><a href="#testimonials">Clients' Testimonials</a></li>
-    <li><a href="#credentials">Credentials & Qualifications</a></li>
-    <li><a href="#claims">Claims Records</a></li>
-    <li><a href="#contact">Get in Touch</a></li>
-  </ul>
-</nav>
-
-<!-- Background Video -->
-<div class="bg-video-wrapper">
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="video/background.mp4" type="video/mp4">
-  </video>
-</div>
-
-<main>
-
-<!-- About Me -->
-<section class="container about" id="about">
-  <h2> About Me </h2>
-  <div class="about-grid">
-
-    <!-- Advisor Picture + Name -->
-    <div class="about-pic">
-      <div class="flip-container">
-        <div class="flip-card">
-          <div class="flip-front">
-            <img src="images/advisor1.jpg" alt="Advisor">
-          </div>
-          <div class="flip-back">
-            <img src="images/advisor2.jpg" alt="Advisor2">
-          </div>
-        </div>
-      </div>
-      <!-- Name below the picture -->
-      <p class="advisor-name">LIM WEI XI</p>
-    </div>
-
-    <!-- About Text -->
-    <div class="about-text">
-      <p>
-        Hi, my name is <strong> Wei Xi (Leonard)</strong>. I am a licensed financial advisor dedicated to helping
-        individuals and families make informed decisions about insurance, protection,
-        and long-term financial security.
-      </p>
-      <p>
-        I began this career while studying at the National University of Singapore (NUS)
-        and am currently in my fourth year in the industry, working closely with individuals
-        and families through different stages of life.
-      </p>
-      <p>
-        My approach is simple — understand your needs, provide clear and honest advice,
-        and design practical solutions that deliver long-term value and peace of mind.
-      </p>
-    </div>
-
-  </div>
-
-</section>
+:root {
+  --primary: #1f2937;      /* dark text */
+  --accent: #d23854;       /* lighter red */
+  --accent-light: #d23854; /* lighter gradient end */
+  --bg: #fdf6ec;           /* main page background */
+--card: #e0f2fe;   /* very light sky blue */
+  --text: #1f2937;         /* text color */
+  --shadow: rgba(20, 184, 166, 0.25); /* matching lighter shadow */
+}
 
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(to right, var(--accent), var(--accent-light));
+  color: white;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  box-shadow: 0 8px 25px var(--shadow);
+  transform: translateY(-2px);
+}
+
+/* Sections */
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 40px 20px;
+  background: #f8fafc;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #f5f5f5, #e5e5e5); /* soft light grey gradient */
+  padding: 40px 20px;
+  margin: 50px auto;
+  border-radius: 16px;
+  max-width: 1000px;           
+  text-align: center;
+}
+
+  .advisor-name {
+    color: #d23854;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px; /* Adjust font size if needed */
+  }
+
+.hero-text {
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+/* Flip Cards - Shared */
+.flip-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.flip-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 280px;
+  height: 360px;
+  will-change: transform;
+}
+
+.flip-card:hover {
+  box-shadow: 0 15px 35px var(--shadow);
+}
+
+/* Flip effect on desktop */
+.flip-container:hover .flip-card {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back */
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: inherit;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.8s ease;
+}
+
+.flip-front img,
+.flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Hero Flip Card */
+.hero-flip .flip-card {
+  width: 420px;
+  height: 300px;
+}
+
+/* About layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+
+}
+
+/* Cards layout */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px var(--shadow);
+}
+
+.certificate-img {
+  width: 140px;
+  margin: 15px auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* Testimonials */
+.testimonial-wrapper {
+  display: grid;
+  gap: 20px;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  background: #e0e7ff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.testimonial-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Center buttons */
+.center-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    align-items: center;    /* center content */
+    text-align: center;     /* make text centered */
+  }
+
+  .about-pic {
+    order: -1;             /* picture comes first */
+    margin-bottom: 20px;   /* spacing between picture and text */
+  }
+
+  .flip-card {
+    width: 280px;
+    height: 380px;
+  }
+
+  .hero-flip .flip-card {
+    width: 300px;
+    height: 220px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Mobile tap flip */
+  .flip-card {
+    cursor: pointer;
+  }
+}
+
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wa-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Background Video */
+.bg-video-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.12;          /* controls transparency */
+  filter: blur(1px);     /* softens video */
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;        /* stays at top when scrolling */
+  top: 0;
+  width: 100%;
+  background: #ffffffcc;   /* slightly transparent white */
+  backdrop-filter: blur(10px); /* soft blur behind navbar */
+  z-index: 1000;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar ul li a:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Navbar header */
+.nav-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* change from center to space-between */
+}
+
+/* Centered brand */
+.brand {
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;        /* force it above everything */
+  pointer-events: auto;
+}
+
+/* Desktop menu */
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
+    position: relative;
+    z-index: 999;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .nav-header {
+    padding: 0 20px; /* ensures hamburger isn't too close to edge */
+  }
+}
 
 
-  <!-- Hero / Financial Planning -->
-  <header class="hero" id="hero">
-    <div class="hero-text">
-      <p>
-        <strong><span style="color: #e60012;">Licensed Financial Advisor</span></strong> <br>
-        (<strong><span style="font-size: 0.8em;">Rep No: LWX300667274</span></strong>)<br>
-        <br>
-        Protection · Retirement · Wealth Planning · Corporate Insurance
-      </p>
-      <a class="btn whatsapp-btn" href="https://wa.me/6592708573" target="_blank" style="font-size: 18px;">
-        <img src="images/whatsapp.png" alt="WhatsApp" class="wa-icon">
-        Speak With Me on WhatsApp
-      </a>
-    </div>
+/* Smooth scroll already handled by: */
+html {
+  scroll-behavior: smooth;
+}
 
-    <!-- Flip Hero Image -->
-    <div class="flip-container hero-flip">
-      <div class="flip-card">
-        <div class="flip-front">
-          <img src="images/consultation.jpg" alt="Financial consultation">
-        </div>
-        <div class="flip-back">
-          <img src="images/consultation2.jpg" alt="Financial consultation2">
-        </div>
-      </div>
-    </div>
-  </header>
+.testimonials {
+  padding: 60px 20px;
+  text-align: center;
+}
 
+.testimonials h2 {
+  margin-bottom: 30px;
+}
 
-  <!-- Why Choose Me -->
-  <section class="container why" id="why">
-    <h2>💡 Why Clients Choose Me  </h2>
-    <div class="cards">
-      <div class="card">
-        <h3> 🏆 Client-First Advice</h3>
-        <p>No pushing. Recommendations based on your real needs and budget.</p>
-      </div>
-      <div class="card">
-        <h3> 🌟 Clear Explanations</h3>
-        <p>Insurance and investments explained in simple, understandable terms.</p>
-      </div>
-      <div class="card">
-        <h3> 🤝 Long-Term Support</h3>
-        <p>Regular reviews, claims support, and policy optimisation.</p>
-      </div>
-    </div>
-  </section>
+/* Carousel Wrapper */
+.carousel-wrapper {
+  position: relative; /* anchor for arrows */
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
 
+/* Carousel Container */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 10px;
+  box-sizing: border-box;
+  position: relative;
+}
 
-  <!-- Testimonials Carousel -->
-  <section class="container testimonials" id="testimonials">
-  <h2>✨ Client Testimonials</h2>
+/* Track */
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+  /* Align first card closer to left */
+  padding-left: 0;
+}
 
-  <div class="carousel-wrapper">
+/* Cards */
+.testimonial-card {
+  min-width: 280px;
+  max-width: 280px;
+  margin: 0 12px;
+  background: #fff;
+  padding: 22px 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  text-align: center;
+  flex-shrink: 0;
+}
 
-    <!-- Left Arrow -->
-    <button class="carousel-btn prev" id="prevBtn">❮</button>
+.testimonial-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
 
-    <!-- Carousel Container -->
-    <div class="carousel-container">
-      <div class="carousel-track" id="carouselTrack">
+.testimonial-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
 
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card">
-          <img src="images/client1.jpg" alt="Client Photo">
-          <p>“Wei Xi is very patient and transparent. When I needed help for claims, his response was fast and answered my enquiries immediately.”</p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Regina, Fresh Graduate</strong></p>
-        </div>
+.testimonial-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+}
 
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card">
-          <img src="images/client2.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi helped us restructured our family's insurance and saved money while improving coverage.
-            He is also very efficient in processing claims for our family. Highly recommended.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Mrs Tan, Tuition Teacher</strong></p>
-        </div>
+.stars {
+  margin: 6px 0;
+  font-size: 15px;
+}
 
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card">
-          <img src="images/client3.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi is a reliable advisor who genuinely cares about long-term planning and relationships.
-            He never fails to go extra mile to help his clients.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– May Kei, Assistant Manager</strong></p>
-        </div>
+/* Arrows */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e60012;
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
 
-        <!-- Testimonial 4 -->
-        <div class="testimonial-card">
-          <img src="images/client4.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi is very efficient and responsive agent. Whenever I needed help for claims,
-            he will always be there for me. With his help, my claims went through smoothly and
-            paid out were as fast within a few hours.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Remus, Trader and Director</strong></p>
-        </div>
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+}
 
-        <!-- Testimonial 5 -->
-        <div class="testimonial-card">
-          <img src="images/client5.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi shows a lot of compassion for his clients, which is something I really admire
-            and I believe his service is one of the best in AIA Singapore.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Rayner, Co-Founder of Swim School</strong></p>
-        </div>
+.carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
 
-        <!-- Testimonial 6 -->
-        <div class="testimonial-card">
-          <img src="images/client6.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi provided excellent guidance throughout the entire process. He patiently explained
-            all the options and helped me choose the best plan that suits my needs. I feel confident
-            knowing my financial future is in good hands.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Robert, Investment Analyst</strong></p>
-        </div>
+/* Arrow positions */
+/* Left and Right positioning - OUTSIDE cards */
+.carousel-btn.prev {
+  left: -60px;   /* move outside the carousel container */
+}
 
-        <!-- Testimonial 7 -->
-        <div class="testimonial-card">
-          <img src="images/client7.jpg" alt="Client Photo">
-          <p>
-            “Extremely professional and responsive! Whenever I had questions or needed clarification,
-            Wei Xi always got back to me promptly. His advice is practical and tailored to my situation,
-            making complex financial decisions much easier.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Mr Tay, Civil Officer</strong></p>
-        </div>
+.carousel-btn.next {
+  right: -60px;  /* move outside the carousel container */
+}
 
-        <!-- Testimonial 8 -->
-        <div class="testimonial-card">
-          <img src="images/client8.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi helped me understand insurance and investment options in very simple terms.
-            He never used jargon and made sure I fully understood each step. Thanks to him,
-            I feel much more informed and confident about my financial planning.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Yee Jie, Student</strong></p>
-        </div>
+/* Dots */
+.carousel-dots {
+  margin-top: 18px;
+  text-align: center;
+}
 
-        <!-- Testimonial 9 -->
-        <div class="testimonial-card">
-          <img src="images/client9.jpg" alt="Client Photo">
-          <p>
-            “He is reliable, trustworthy, and always transparent. Wei Xi took the time to review
-            my existing policies and suggested improvements that made a real difference.
-            I truly appreciate his honesty and dedication to his clients.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Elisa, Assistant Engineer</strong></p>
-        </div>
+.carousel-dots span {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-        <!-- Testimonial 10 -->
-        <div class="testimonial-card">
-          <img src="images/client10.jpg" alt="Client Photo">
-          <p>
-            “He made the whole financial planning process smooth and stress-free. From the initial
-            consultation to claims support, everything was handled professionally.
-            I highly recommend Wei Xi to anyone looking for reliable advice.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Chu Hao, Student</strong></p>
-        </div>
+.carousel-dots span.active {
+  background: #e60012;
+  transform: scale(1.3);
+}
 
-        <!-- Testimonial 11 -->
-        <div class="testimonial-card">
-          <img src="images/client11.jpg" alt="Client Photo">
-          <p>
-            "Highly professional and easy to work with. He helped arrange protection for me and my family while I focused on growing my business."
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Leon, Entrepreneur</strong></p>
-        </div>
+/* Mobile: hide arrows */
+@media (max-width: 768px) {
 
-        <!-- Testimonial 12 -->
-        <div class="testimonial-card">
-          <img src="images/client12.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi is a really nice person and advisor in real life. He is caring and non-pushy.
-            I would recommend him!”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Alzan, Facility Officer</strong></p>
-        </div>
+  /* Hide arrows on phone */
+  .carousel-btn {
+    display: none;
+  }
 
-        <!-- Testimonial 13 -->
-        <div class="testimonial-card">
-          <img src="images/client13.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi provided me sound financial advice during my NS. Now under his care,
-            I have grown to deal with my finance more carefully”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Stuart, Aircraft Engineer</strong></p>
-        </div>
+  /* Full width viewport */
+  .carousel-container {
+    padding: 0;
+  }
 
-        <!-- Testimonial 14 -->
-        <div class="testimonial-card">
-          <img src="images/client14.png" alt="Client Photo">
-          <p>
-            “Wei Xi always takes time to answer my questions. He is trustworthy and I feel confident about my financial planning now.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Anthony, Teacher</strong></p>
-        </div>
+  /* Force track to align left */
+  .carousel-track {
+    justify-content: flex-start;
+    padding-left: 12px;
+  }
 
-        <!-- Testimonial 15 -->
-        <div class="testimonial-card">
-          <img src="images/client15.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi’s guidance helped me make smart financial decisions. I always feel supported and well-informed.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Alex, Consultant</strong></p>
-        </div>
+  /* Make card fill screen properly */
+  .testimonial-card {
+    min-width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
 
-        <!-- Testimonial 16 -->
-        <div class="testimonial-card">
-          <img src="images/client16.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi explained everything clearly and helped me choose the right protection for my family. Very responsible and trustworthy.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Mr Tan, Chef</strong></p>
-        </div>
+    margin: 0 6px 0 0;   /* Only right margin */
+  }
 
-        <!-- Testimonial 17 -->
-        <div class="testimonial-card">
-          <img src="images/client17.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi is incredibly caring and approachable. He listened to my concerns and provided
-            advice that truly fits my personal situation. I feel confident knowing I have a
-            long-term advisor who genuinely cares about my well-being.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Teresa, Administrative Officer</strong></p>
-        </div>
-
-
-        <!-- Testimonial 18 -->
-        <div class="testimonial-card">
-          <img src="images/client18.jpg" alt="Client Photo">
-          <p>
-            “Wei Xi is very detailed and patient. He helped me plan properly for both business and personal coverage.”
-          </p>
-          <div class="stars">⭐⭐⭐⭐⭐</div>
-          <p><strong>– Brenden, Business Owner</strong></p>
-        </div>
-
-
-      </div>
-    </div>
-
-    <!-- Right Arrow -->
-    <button class="carousel-btn next" id="nextBtn">❯</button>
-  </div>
-
-  <!-- Dots -->
-  <div class="carousel-dots" id="carouselDots"></div>
-</section>
-
-
-  <!-- Credentials -->
-  <section class="container credentials" id="credentials">
-    <h2>📜 Credentials & Qualifications</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>✅ Licensing</h3>
-        <a href="certificates/insurance-license.pdf" target="_blank">
-          <img src="certificates/mas_thumbnail.png" alt="MAS Insurance License" class="certificate-img">
-        </a>
-        <p><strong>Insurance License</strong>
-        <br> MAS-regulated <br> 
-        <strong><span style="font-size: 0.8em;"> Rep No: LWX300667274 </span></strong><br></p>
-      </div>
-      <div class="card">
-        <h3>🏅 Qualification</h3>
-        <a href="certificates/ibf_cert.jpg" target="_blank">
-          <img src="certificates/ibf_thumbnail.jpg" alt="IBF Qualification" class="certificate-img">
-        </a>
-        <p><strong>IBF Qualified</strong><br>Institute of Banking & Finance (IBF)</p>
-      </div>
-      <div class="card">
-        <h3>🎓 Education</h3>
-        <a href="certificates/degree.pdf" target="_blank">
-          <img src="certificates/nus_logo.jpg" alt="Degree Certificate" class="certificate-img">
-        </a>
-        <p><strong>Degree Certificate</strong><br>BSc in Business Analytics (Computing)</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Claims Records -->
-  <section class="container" id="claims">
-    <h2>🏥 Claims Records </h2>
-    <div class="claims-summary center-text">
-      <p>Over <strong>357+ claims</strong> processed with total value <strong>SGD 310,000</strong> (Jan 2026)</p>
-    </div>
-    <br>
-    <div class="cards">
-      <div class="card"><h3>Total Claims</h3><p>357+</p></div>
-      <div class="card"><h3>Total Value</h3><p>SGD 310,000</p></div>
-    </div>
-    <div class="center-btn">
-    <a class="btn" 
-      href="https://www.aia.com.sg/en/agent-profile?cd=011&q=xc30d04090302d367ea2a896f17c572d23e01cb8ab61efeebcd354b1e9546e0bc17de65764b0df34e0a0d8c6c6d326d857a49019618056b2e79e87b6a8a51b64611e317a61f80532fcf82acc56f3fe7" 
-      target="_blank"
-      style="font-size: 18px;">
-      View Full Claims Profile
-    </a>
-  </div>
-
-  </section>
-
-<!-- Contact & Digital E-Namecard -->
-<section class="container contact" id="contact">
-  <h2>📲 Get in Touch & Digital E-Namecard</h2>
-  
-  <div style="text-align: center; margin-bottom: 20px;">
-    <p>
-      If you’re looking for honest, professional financial advice, 
-      feel free to reach out for a no-obligation discussion.
-    </p>
-    <br>
-    <a class="btn whatsapp-btn" href="https://wa.me/6592708573" target="_blank"
-      style="font-size: 18px; margin-bottom: 10px; display: inline-flex; align-items: center; gap: 8px;">
-      <img src="images/whatsapp.png" alt="WhatsApp" class="wa-icon">
-      Message Me on WhatsApp
-    </a>
-    <br><br>
-    <a class="btn" 
-      href="https://www.aia.com.sg/en/agent-profile?cd=011&q=xc30d04090302d367ea2a896f17c572d23e01cb8ab61efeebcd354b1e9546e0bc17de65764b0df34e0a0d8c6c6d326d857a49019618056b2e79e87b6a8a51b64611e317a61f80532fcf82acc56f3fe7" 
-      target="_blank"
-      style="font-size: 18px; padding: 12px 24px;"
-    >
-      View My E-Namecard
-    </a>
-  </div>
-</section>
-
-
-</main>
-
-<footer>
-  <p>© 2025 Financial Advisory Services<br>Licensed & Regulated · Singapore</p>
-</footer>
-
-<script src="script.js"></script> <!-- for testimonial toggle & mobile flip -->
-
-</body>
-</html>
-
+  .testimonial-card p {
+    font-size: 15px;
+  }
+}
 
