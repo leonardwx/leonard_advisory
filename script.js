@@ -63,3 +63,71 @@ if (hamburger && navMenu) {
     });
   });
 }
+
+// ===============================
+// Testimonials Carousel
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.getElementById("carouselTrack");
+  const cards = document.querySelectorAll(".testimonial-card");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const dotsContainer = document.getElementById("carouselDots");
+
+  if (!track || cards.length === 0) return; // safety check
+
+  let index = 0;
+
+  /* Create dots dynamically */
+  cards.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      index = i;
+      updateCarousel();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".carousel-dots span");
+
+  /* Update carousel function */
+  function updateCarousel() {
+    const cardWidth = cards[0].getBoundingClientRect().width + parseInt(getComputedStyle(cards[0]).marginRight);
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index >= cards.length - 1;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    if(dots[index]) dots[index].classList.add("active");
+  }
+
+  /* Navigation buttons */
+  nextBtn.addEventListener("click", () => {
+    if(index < cards.length - 1) { index++; updateCarousel(); }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if(index > 0) { index--; updateCarousel(); }
+  });
+
+  /* Swipe support */
+  let startX = 0;
+  track.addEventListener("touchstart", e => { startX = e.touches[0].clientX; });
+  track.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    const swipeThreshold = cards[0].getBoundingClientRect().width / 4; // swipe 25% width
+    if(startX - endX > swipeThreshold && index < cards.length-1) index++;
+    if(endX - startX > swipeThreshold && index > 0) index--;
+    updateCarousel();
+  });
+
+  /* Initialize carousel */
+  updateCarousel();
+
+  /* Update on window resize to recalc width */
+  window.addEventListener("resize", updateCarousel);
+});
+
+
