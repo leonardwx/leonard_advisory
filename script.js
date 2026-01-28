@@ -130,4 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", updateCarousel);
 });
 
+document.querySelectorAll('.carousel-swipe-hint .swipe-arrow').forEach((arrow, i) => {
+  arrow.addEventListener('click', () => {
+    if(i === 0 && index > 0) index--; // left arrow
+    if(i === 1 && index < cards.length - 1) index++; // right arrow
+    updateCarousel();
+  });
+});
+
+
+
 
