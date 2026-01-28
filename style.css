@@ -550,23 +550,28 @@ html {
     display: none;
   }
 
-  /* Remove side gap on mobile */
+  /* Full width viewport */
   .carousel-container {
     padding: 0;
   }
 
+  /* Force track to align left */
   .carousel-track {
-    padding-left: 5px;
+    justify-content: flex-start;
+    padding-left: 12px;
   }
 
+  /* Make card fill screen properly */
   .testimonial-card {
-    min-width: 90%;
-    max-width: 90%;
-    margin: 0 6px;
+    min-width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+
+    margin: 0 6px 0 0;   /* Only right margin */
   }
 
   .testimonial-card p {
     font-size: 15px;
   }
 }
+
 
