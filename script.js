@@ -68,76 +68,150 @@ if (hamburger && navMenu) {
 // Testimonials Carousel
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
+
   const track = document.getElementById("carouselTrack");
   const cards = document.querySelectorAll(".testimonial-card");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
   const dotsContainer = document.getElementById("carouselDots");
+  const swipeArrows = document.querySelectorAll(".carousel-swipe-hint .swipe-arrow");
 
   if (!track || cards.length === 0) return; // safety check
 
   let index = 0;
+  let startX = 0;
 
-  /* Create dots dynamically */
+  // ===============================
+  // Create dots
+  // ===============================
   cards.forEach((_, i) => {
     const dot = document.createElement("span");
+
     if (i === 0) dot.classList.add("active");
+
     dot.addEventListener("click", () => {
       index = i;
       updateCarousel();
     });
+
     dotsContainer.appendChild(dot);
   });
 
   const dots = document.querySelectorAll(".carousel-dots span");
 
-  /* Update carousel function */
+
+  // ===============================
+  // Update carousel
+  // ===============================
   function updateCarousel() {
-    const cardWidth = cards[0].getBoundingClientRect().width + parseInt(getComputedStyle(cards[0]).marginRight);
+
+    const cardStyle = getComputedStyle(cards[0]);
+
+    const cardWidth =
+      cards[0].getBoundingClientRect().width +
+      parseInt(cardStyle.marginRight);
+
     track.style.transform = `translateX(-${index * cardWidth}px)`;
 
-    prevBtn.disabled = index === 0;
-    nextBtn.disabled = index >= cards.length - 1;
+    // Buttons disable
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index >= cards.length - 1;
 
+    // Update dots
     dots.forEach(dot => dot.classList.remove("active"));
-    if(dots[index]) dots[index].classList.add("active");
+
+    if (dots[index]) {
+      dots[index].classList.add("active");
+    }
   }
 
-  /* Navigation buttons */
-  nextBtn.addEventListener("click", () => {
-    if(index < cards.length - 1) { index++; updateCarousel(); }
+
+  // ===============================
+  // Button Navigation
+  // ===============================
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      if (index < cards.length - 1) {
+        index++;
+        updateCarousel();
+      }
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      if (index > 0) {
+        index--;
+        updateCarousel();
+      }
+    });
+  }
+
+
+  // ===============================
+  // Swipe Support (Mobile)
+  // ===============================
+  track.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
   });
 
-  prevBtn.addEventListener("click", () => {
-    if(index > 0) { index--; updateCarousel(); }
-  });
-
-  /* Swipe support */
-  let startX = 0;
-  track.addEventListener("touchstart", e => { startX = e.touches[0].clientX; });
   track.addEventListener("touchend", e => {
+
     const endX = e.changedTouches[0].clientX;
-    const swipeThreshold = cards[0].getBoundingClientRect().width / 4; // swipe 25% width
-    if(startX - endX > swipeThreshold && index < cards.length-1) index++;
-    if(endX - startX > swipeThreshold && index > 0) index--;
+
+    const swipeDistance = startX - endX;
+
+    const threshold = cards[0].offsetWidth * 0.25; // 25%
+
+    // Swipe left → next
+    if (swipeDistance > threshold && index < cards.length - 1) {
+      index++;
+    }
+
+    // Swipe right → prev
+    if (-swipeDistance > threshold && index > 0) {
+      index--;
+    }
+
     updateCarousel();
   });
 
-  /* Initialize carousel */
+
+  // ===============================
+  // Bottom Swipe Arrows
+  // ===============================
+  swipeArrows.forEach((arrow, i) => {
+
+    arrow.addEventListener("click", () => {
+
+      // Left arrow
+      if (i === 0 && index > 0) {
+        index--;
+      }
+
+      // Right arrow
+      if (i === 1 && index < cards.length - 1) {
+        index++;
+      }
+
+      updateCarousel();
+    });
+
+  });
+
+
+  // ===============================
+  // Resize Support
+  // ===============================
+  window.addEventListener("resize", updateCarousel);
+
+
+  // ===============================
+  // Init
+  // ===============================
   updateCarousel();
 
-  /* Update on window resize to recalc width */
-  window.addEventListener("resize", updateCarousel);
 });
-
-document.querySelectorAll('.carousel-swipe-hint .swipe-arrow').forEach((arrow, i) => {
-  arrow.addEventListener('click', () => {
-    if(i === 0 && index > 0) index--; // left arrow
-    if(i === 1 && index < cards.length - 1) index++; // right arrow
-    updateCarousel();
-  });
-});
-
 
 
 
