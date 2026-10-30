@@ -41,3 +41,5 @@ Biography text now sits on an opaque ivory reading surface with darker text and 
 ## Selected About style · v8.2
 
 About uses the member-selected plain ivory section background and open text layout, with no biography card or scenery behind the paragraphs. The smaller v8.1 phone number remains. Replace scenery.css from this package.
+
+Version 8.3: enlarged credential pictures, stacked mobile cards and removed decorative 01/02/03 behind the pictures. From v8.2 replace index.html and scenery.css. Preserve original media/certificates.
