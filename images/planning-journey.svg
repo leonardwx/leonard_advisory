@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="560" viewBox="0 0 600 560" fill="none">
+<defs><linearGradient id="sky" x2="0" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#f8e5ce"/><stop offset="1" stop-color="#f8f1df"/></linearGradient><linearGradient id="hill" x2="600" y2="560" gradientUnits="userSpaceOnUse"><stop stop-color="#b8c6a3"/><stop offset="1" stop-color="#65856c"/></linearGradient><pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".7" fill="#426149" opacity=".12"/></pattern></defs>
+<path fill="url(#sky)" d="M0 0h600v560H0z"/>
+<circle cx="364" cy="145" r="88" fill="#efbe76"/>
+<circle cx="364" cy="145" r="112" stroke="#c88f4d" stroke-opacity=".3"/><circle cx="364" cy="145" r="131" stroke="#c88f4d" stroke-opacity=".15"/>
+<path d="M-30 254c124-100 219-89 315-25s190 51 345-12v343H-30Z" fill="#d8ddc2"/>
+<path d="M-40 326c130-99 218-111 335-53s184 85 345-1v288H-40Z" fill="#a8ba99"/>
+<path d="M-10 365c139 30 193-47 297-52s203 91 323 68v179H-10Z" fill="url(#hill)"/>
+<path d="M-10 365c139 30 193-47 297-52s203 91 323 68v179H-10Z" fill="url(#grain)"/>
+<path d="M308 258c-65 48-105 65-98 98 10 45 144 31 123 79-13 29-96 54-137 125h198c14-70 2-87-31-121-38-37-122-56-120-89 1-25 39-56 65-92Z" fill="#f8ecd7"/>
+<path d="M308 258c-65 48-105 65-98 98 10 45 144 31 123 79-13 29-96 54-137 125" stroke="#fcf6e9" stroke-width="4"/>
+<!-- An imagined home and trees, with no claim to represent a property or place. -->
+<path d="m112 247 38-32 40 32v54h-78Z" fill="#f8efdf"/><path d="m102 249 48-41 50 41" stroke="#6a7d5d" stroke-width="9" stroke-linejoin="round"/><path d="M143 275h14v26h-14Z" fill="#c29773"/><path d="M124 258h12v13h-12Zm40 0h12v13h-12Z" fill="#a7b9ad"/>
+<path d="M88 278V180" stroke="#6b805b" stroke-width="5"/><ellipse cx="87" cy="197" rx="28" ry="48" fill="#819b73"/><path d="M88 279V200m0 28-17-19m17 34 16-21" stroke="#55744f" stroke-width="2"/>
+<path d="M466 392V241" stroke="#536f51" stroke-width="6"/><path d="M467 240c-58-54-50-89-28-93 24-4 45 31 28 93Z" fill="#738e64"/><path d="M468 284c3-62 31-87 51-76 23 12 2 59-51 76Z" fill="#7f996c"/><path d="M466 316c-53-20-70-50-53-66 18-17 52 11 53 66Z" fill="#9bae82"/><path d="m466 316-35-49m38 18 33-54m-35 7-24-72" stroke="#536f51" stroke-width="2"/>
+<!-- Quiet floating symbols: protection, growth and a direction. -->
+<g transform="translate(40 72) rotate(-7 45 42)"><rect x="0" y="5" width="88" height="82" rx="20" fill="#7c8055" opacity=".1"/><rect width="88" height="82" rx="20" fill="#fffbef"/><path d="m44 20 18 7v11c0 11-9 17-18 22-9-5-18-11-18-22V27Z" stroke="#6b8265" stroke-width="2"/><path d="m35 39 6 6 12-13" stroke="#b68a4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(419 74) rotate(9 43 41)"><rect x="0" y="5" width="86" height="82" rx="20" fill="#7c8055" opacity=".1"/><rect width="86" height="82" rx="20" fill="#fffbef"/><path d="M25 57h37M31 50V38h8v12m9 0V26h8v24M25 31l12-10 9 4 15-10" stroke="#6b8265" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g stroke="#8f7e57" stroke-width="1.6" opacity=".55"><path d="M214 100v14m-7-7h14M532 164v12m-6-6h12M151 149v8m-4-4h8"/><path d="m240 194 5 5-5 5-5-5Z"/></g>
+<path d="M31 474c36-12 58-9 82-3m-61 21c29-6 47-3 63 2M422 473c33-8 60-2 82 8m-83 12c30-2 46 3 62 11" stroke="#e4ebd6" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

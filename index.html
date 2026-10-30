@@ -14,6 +14,8 @@
 <link href="images/favicon.ico" rel="icon"/>
 <script defer="" src="script.js">
 </script>
+<link href="enhancement.css" rel="stylesheet"/><script defer src="enhancements.js"></script>
+<link href="scenery.css" rel="stylesheet"/>
 </head>
 <body>
 <a class="skip-link" href="#main">
@@ -91,6 +93,9 @@
 </nav>
 <main id="main">
 <header class="hero section-shell" id="hero">
+<div class="singapore-scene hero-scene" aria-hidden="true">
+<img src="images/marina-bay.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"/>
+</div>
 <div class="hero-text">
 <p class="eyebrow">
 <span aria-hidden="true" class="small-line">
@@ -135,16 +140,16 @@
 <div class="hero-visual">
 <div class="visual-topline">
 <span>
-       YOUR GOALS. YOUR PACE.
+       Your goals. Your pace.
       </span>
 <span aria-hidden="true">
        ✳
       </span>
 </div>
 <div class="flip-container hero-flip">
-<button aria-label="Show alternate financial consultation image" aria-pressed="false" class="flip-card" type="button">
+<button aria-label="View another planning perspective" aria-pressed="false" class="flip-card" type="button">
 <span class="flip-front">
-<span aria-hidden="true" class="image-fallback">
+<span aria-hidden="true" class="image-fallback" data-illustration="Decorative planning illustration, not a real location">
 <span class="fallback-orbit">
 </span>
 <span class="fallback-monogram">
@@ -157,7 +162,7 @@
 <img alt="Financial consultation" decoding="async" loading="lazy" src="images/consultation.jpg"/>
 </span>
 <span aria-hidden="true" class="flip-back">
-<span aria-hidden="true" class="image-fallback alternate">
+<span aria-hidden="true" class="image-fallback alternate" data-illustration="Decorative planning illustration, not a real location">
 <span class="fallback-orbit">
 </span>
 <span class="fallback-monogram">
@@ -192,7 +197,6 @@
 </div>
 </div>
 </header>
-
 <section aria-labelledby="about-heading" class="container about" id="about">
 <div class="about-grid">
 <div class="about-pic">
@@ -271,7 +275,7 @@
 </a>
 </div>
 </div>
-</section><section aria-labelledby="services-heading" class="container client-services" id="services"><div class="section-heading"><div><p class="eyebrow">WHAT I DO FOR MY CLIENTS</p><h2 id="services-heading">Planning for <em>every chapter</em></h2></div></div><ul class="service-grid"><li class="service-item"><span aria-hidden="true" class="service-symbol">◈</span><span>Personal Financial Portfolio Audit</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol">◇</span><span>Risk Management</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol">↗</span><span>Wealth Accumulation</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol">☀</span><span>Retirement Income Planning</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol">▦</span><span>Corporate Solutions</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol">≡</span><span>Tax Planning</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol">⌂</span><span>Estate Planning</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol">∞</span><span>Legacy Planning</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol">✧</span><span>High Net Worth Wealth Management</span></li></ul></section>
+</section><section aria-labelledby="services-heading" class="container client-services" id="services"><div class="section-heading"><div><p class="eyebrow">WHAT I DO FOR MY CLIENTS</p><h2 id="services-heading">Planning for <em>every chapter</em></h2></div></div><div class="chapter-gallery"><a class="chapter-card" href="#service-risk"><img alt="" height="280" loading="lazy" src="images/chapter-protection.svg" width="480"/><span>Protect what matters.</span></a><a class="chapter-card" href="#service-growth"><img alt="" height="280" loading="lazy" src="images/chapter-growth.svg" width="480"/><span>Build for the future.</span></a><a class="chapter-card" href="#service-retirement"><img alt="" height="280" loading="lazy" src="images/chapter-retirement.svg" width="480"/><span>Plan your next chapter.</span></a></div><ul class="service-grid"><li class="service-item"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-portfolio.svg" width="38"/></span><span>Personal Financial Portfolio Audit</span><span aria-hidden="true" class="service-index">01</span></li><li class="service-item" id="service-risk"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-shield.svg" width="38"/></span><span>Risk Management</span><span aria-hidden="true" class="service-index">02</span></li><li class="service-item" id="service-growth"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-growth.svg" width="38"/></span><span>Wealth Accumulation</span><span aria-hidden="true" class="service-index">03</span></li><li class="service-item" id="service-retirement"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-sunrise.svg" width="38"/></span><span>Retirement Income Planning</span><span aria-hidden="true" class="service-index">04</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-building.svg" width="38"/></span><span>Corporate Solutions</span><span aria-hidden="true" class="service-index">05</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-document.svg" width="38"/></span><span>Tax Planning</span><span aria-hidden="true" class="service-index">06</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-home.svg" width="38"/></span><span>Estate Planning</span><span aria-hidden="true" class="service-index">07</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-legacy.svg" width="38"/></span><span>Legacy Planning</span><span aria-hidden="true" class="service-index">08</span></li><li class="service-item"><span aria-hidden="true" class="service-symbol"><img alt="" height="38" src="images/icon-diamond.svg" width="38"/></span><span>High Net Worth Wealth Management</span><span aria-hidden="true" class="service-index">09</span></li></ul></section>
 <section aria-labelledby="why-heading" class="container why" id="why">
 <div class="section-heading">
 <div>
@@ -292,7 +296,7 @@
      </p>
 </div>
 <div class="cards">
-<article class="card">
+<article class="card"><img alt="" aria-hidden="true" class="why-icon" height="58" src="images/icon-listen.svg" width="58"/>
 <span class="card-number">
        01 / LISTEN
       </span>
@@ -303,7 +307,7 @@
        No pushing. Recommendations based on your real needs and budget.
       </p>
 </article>
-<article class="card">
+<article class="card"><img alt="" aria-hidden="true" class="why-icon" height="58" src="images/icon-explain.svg" width="58"/>
 <span class="card-number">
        02 / EXPLAIN
       </span>
@@ -314,7 +318,7 @@
        Insurance and investments explained in simple, understandable terms.
       </p>
 </article>
-<article class="card">
+<article class="card"><img alt="" aria-hidden="true" class="why-icon" height="58" src="images/icon-support.svg" width="58"/>
 <span class="card-number">
        03 / SUPPORT
       </span>
@@ -767,8 +771,7 @@
            Rep No: LWX300667274
           </span>
 </strong>
-<br>
-</br>
+<br/>
 </p>
 </div>
 <div class="card">
@@ -830,7 +833,6 @@
        <strong>
         SGD 450,000
        </strong>
-       (Oct 2026)
       </p>
 <a class="text-link" href="https://www.aia.com.sg/en/agent-profile?cd=011&amp;q=xc30d04090302d367ea2a896f17c572d23e01cb8ab61efeebcd354b1e9546e0bc17de65764b0df34e0a0d8c6c6d326d857a49019618056b2e79e87b6a8a51b64611e317a61f80532fcf82acc56f3fe7" rel="noopener noreferrer" target="_blank">
        View full claims profile
@@ -863,7 +865,7 @@
        </strong>
 </div>
 <p>
-       Claims records · Oct 2026
+       Claims records · Nov 2026
       </p>
 </div>
 </div>
@@ -899,7 +901,7 @@
       </span>
 </a>
 <a class="phone-link" href="tel:+6592708573">
-      +65 9270 8573
+      <span class="phone-label">Call Wei Xi</span><span class="phone-number">+65 9270 8573</span>
      </a>
 </div>
 </section>
@@ -938,10 +940,12 @@
 <h2 id="disclaimer-heading">Disclaimer</h2>
 <p>This is not an official AIA web profile. The views and opinions expressed in this publication are those of the author and do not reflect the official policy or position of AIA Singapore Private Limited (Company Registration No. 201106386R) (AIA), any other agency, organisation, employer or company. Assumptions made in the analysis are not reflective of the position of AIA other than the author.</p>
 </section>
+<details class="media-credits"><summary>Photo credits</summary><p>Marina Bay: <a href="https://commons.wikimedia.org/wiki/File:Marina_Bay_Sands_Singapore_by_day.jpg">Medtd1</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, resized and cropped.</p><p>Jewel: <a href="https://commons.wikimedia.org/wiki/File:Rain_Vortex_Jewel_Changi_Airport.jpg">kallerna</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, resized and cropped. Adapted media retain this licence. Place photographs, not live views. No endorsement implied.</p></details>
 </footer>
+<nav class="mobile-quick-nav" aria-label="Quick section navigation"><a href="#hero"><svg aria-hidden="true" focusable="false" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"/></svg><span>Home</span></a><a href="#services"><svg aria-hidden="true" focusable="false" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2M9 9h6M9 13h6M9 17h4"/></svg><span>Planning</span></a><a href="#testimonials"><svg aria-hidden="true" focusable="false" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18v13H10l-5 4v-4H3ZM7 9h10M7 13h7"/></svg><span>Reviews</span></a><a href="#contact" class="quick-contact"><svg aria-hidden="true" focusable="false" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18v13H10l-5 4v-4H3ZM8 10h.01M12 10h.01M16 10h.01"/></svg><span>Contact</span></a></nav>
 <noscript>
 <style>
-    .hamburger,.carousel-navigation,.carousel-dots,.flip-hint{display:none!important}#nav-menu{display:flex!important}.navbar{position:relative!important}.flip-card{pointer-events:none}
+    .hamburger,.carousel-navigation,.carousel-dots,.flip-hint{display:none!important}#nav-menu{display:flex!important}.navbar{position:sticky!important}.flip-card{pointer-events:none}
    </style>
 </noscript>
 </body>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="560" viewBox="0 0 600 560" fill="none">
+<rect width="600" height="560" fill="#e9eddf"/><circle cx="426" cy="145" r="91" fill="#e6bd82"/>
+<path d="M17 408c145-120 309-122 581-19v171H17Z" fill="#d3ddc6"/><path d="M0 467c133-74 366-65 600-5v98H0Z" fill="#bacbad"/>
+<ellipse cx="299" cy="449" rx="143" ry="23" fill="#5a785b" opacity=".13"/>
+<path d="M239 341h125l-20 99H259Z" fill="#d7a483"/><path d="M233 332h137v23H233Z" fill="#e9bea2"/><path d="M274 363v63m21-63v63m21-63v63m21-63-5 63" stroke="#b3876a" stroke-opacity=".35" stroke-width="2"/>
+<path d="M302 331V145m0 76-61-49m61 114 72-72m-72 96-61-29" stroke="#557653" stroke-width="6" stroke-linecap="round"/>
+<path d="M302 183c-65-27-75-93-43-101 35-9 61 45 43 101Z" fill="#89a478"/>
+<path d="M302 227c-1-72 39-109 70-87 28 20-3 72-70 87Z" fill="#6d9064"/>
+<path d="M265 194c-71 10-102-29-82-53 23-28 72-4 82 53Z" fill="#a8bd8f"/>
+<path d="M333 259c16-71 64-96 85-69 26 34-23 76-85 69Z" fill="#91aa7d"/>
+<path d="M267 298c-70 3-100-33-78-58 25-29 72 5 78 58Z" fill="#749569"/>
+<path d="M301 182 263 101m39 126 55-71m-92 38-66-42m134 107 65-52m-131 91-62-45" stroke="#567a52" stroke-width="1.7"/>
+<g transform="translate(72 233) rotate(-10 42 42)"><rect x="0" y="5" width="84" height="84" rx="21" fill="#48684b" opacity=".08"/><rect width="84" height="84" rx="21" fill="#fffbef"/><path d="m20 40 22-19 22 19M27 35v27h30V35M38 62V48h10v14" stroke="#6d8263" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(435 298) rotate(8 43 42)"><rect x="0" y="5" width="84" height="84" rx="21" fill="#48684b" opacity=".08"/><rect width="84" height="84" rx="21" fill="#fffbef"/><path d="M42 58c-29-16-28-30-17-33 8-3 14 1 17 7 3-6 9-10 17-7 11 3 12 17-17 33Z" stroke="#ae8568" stroke-width="2"/></g>
+<g stroke="#8a946e" stroke-width="1.5" opacity=".6"><path d="M155 88v18m-9-9h18M456 227v16m-8-8h16M108 379v12m-6-6h12"/><circle cx="201" cy="104" r="4"/><circle cx="475" cy="94" r="3"/></g>
+</svg>
